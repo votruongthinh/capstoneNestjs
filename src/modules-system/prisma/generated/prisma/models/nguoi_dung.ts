@@ -565,6 +565,14 @@ export type nguoi_dungUpdateOneRequiredWithoutLuu_anhNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.nguoi_dungUpdateToOneWithWhereWithoutLuu_anhInput, Prisma.nguoi_dungUpdateWithoutLuu_anhInput>, Prisma.nguoi_dungUncheckedUpdateWithoutLuu_anhInput>
 }
 
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
 }

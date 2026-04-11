@@ -731,7 +731,6 @@ export const Hinh_anhScalarFieldEnum = {
   ten_hinh: 'ten_hinh',
   duong_dan: 'duong_dan',
   mo_ta: 'mo_ta',
-  tuoi: 'tuoi',
   nguoi_dung_id: 'nguoi_dung_id',
   deletedBy: 'deletedBy',
   isDeleted: 'isDeleted',

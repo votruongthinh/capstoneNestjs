@@ -31,7 +31,6 @@ model hinh_anh {
   ten_hinh      String      @db.VarChar(255)
   duong_dan     String      @db.VarChar(500)
   mo_ta         String      @db.VarChar(500)
-  tuoi          Int?
   nguoi_dung_id Int
   deletedBy     Int         @default(0)
   isDeleted     Boolean     @default(false)

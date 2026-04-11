@@ -4,9 +4,10 @@ import {
   ACCESS_TOKEN_SECRET,
   REFRESH_TOKEN_SECRET,
 } from 'src/common/constant/app.constant';
+import { AccessTokenPayload, RefreshTokenPayload } from './token.dto';
 @Injectable()
 export class TokenService {
-  createAccessToken(userId) {
+  createAccessToken(userId :number): string {
     if (!userId) {
       throw new BadRequestException('khong co userId de tao token');
     }
@@ -17,7 +18,7 @@ export class TokenService {
     );
     return accessToken;
   }
-  createRefreshToken(userId) {
+  createRefreshToken(userId : number): string {
     if (!userId) {
       throw new BadRequestException('khong co userId de tao refreshtoken');
     }
@@ -28,12 +29,12 @@ export class TokenService {
     );
     return refreshToken;
   }
-  verifyAccessToken(accessToken,option?: jwt.VerifyOptions){
+  verifyAccessToken(accessToken : string,option?: jwt.VerifyOptions) : AccessTokenPayload{
     const decode = jwt.verify(accessToken,ACCESS_TOKEN_SECRET as string ,option);
-    return decode;
+    return decode as AccessTokenPayload;
   }
-  verifyRefreshToken(refreshToken,option?:jwt.VerifyOptions){
+  verifyRefreshToken(refreshToken: string,option?:jwt.VerifyOptions): RefreshTokenPayload{
     const decode = jwt.verify(refreshToken,REFRESH_TOKEN_SECRET as string ,option);
-    return decode;
+    return decode as RefreshTokenPayload;
   }
 }

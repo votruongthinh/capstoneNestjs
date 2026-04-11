@@ -28,14 +28,12 @@ export type AggregateHinh_anh = {
 
 export type Hinh_anhAvgAggregateOutputType = {
   hinh_anh_id: number | null
-  tuoi: number | null
   nguoi_dung_id: number | null
   deletedBy: number | null
 }
 
 export type Hinh_anhSumAggregateOutputType = {
   hinh_anh_id: number | null
-  tuoi: number | null
   nguoi_dung_id: number | null
   deletedBy: number | null
 }
@@ -45,7 +43,6 @@ export type Hinh_anhMinAggregateOutputType = {
   ten_hinh: string | null
   duong_dan: string | null
   mo_ta: string | null
-  tuoi: number | null
   nguoi_dung_id: number | null
   deletedBy: number | null
   isDeleted: boolean | null
@@ -59,7 +56,6 @@ export type Hinh_anhMaxAggregateOutputType = {
   ten_hinh: string | null
   duong_dan: string | null
   mo_ta: string | null
-  tuoi: number | null
   nguoi_dung_id: number | null
   deletedBy: number | null
   isDeleted: boolean | null
@@ -73,7 +69,6 @@ export type Hinh_anhCountAggregateOutputType = {
   ten_hinh: number
   duong_dan: number
   mo_ta: number
-  tuoi: number
   nguoi_dung_id: number
   deletedBy: number
   isDeleted: number
@@ -86,14 +81,12 @@ export type Hinh_anhCountAggregateOutputType = {
 
 export type Hinh_anhAvgAggregateInputType = {
   hinh_anh_id?: true
-  tuoi?: true
   nguoi_dung_id?: true
   deletedBy?: true
 }
 
 export type Hinh_anhSumAggregateInputType = {
   hinh_anh_id?: true
-  tuoi?: true
   nguoi_dung_id?: true
   deletedBy?: true
 }
@@ -103,7 +96,6 @@ export type Hinh_anhMinAggregateInputType = {
   ten_hinh?: true
   duong_dan?: true
   mo_ta?: true
-  tuoi?: true
   nguoi_dung_id?: true
   deletedBy?: true
   isDeleted?: true
@@ -117,7 +109,6 @@ export type Hinh_anhMaxAggregateInputType = {
   ten_hinh?: true
   duong_dan?: true
   mo_ta?: true
-  tuoi?: true
   nguoi_dung_id?: true
   deletedBy?: true
   isDeleted?: true
@@ -131,7 +122,6 @@ export type Hinh_anhCountAggregateInputType = {
   ten_hinh?: true
   duong_dan?: true
   mo_ta?: true
-  tuoi?: true
   nguoi_dung_id?: true
   deletedBy?: true
   isDeleted?: true
@@ -232,7 +222,6 @@ export type Hinh_anhGroupByOutputType = {
   ten_hinh: string
   duong_dan: string
   mo_ta: string
-  tuoi: number | null
   nguoi_dung_id: number
   deletedBy: number
   isDeleted: boolean
@@ -269,7 +258,6 @@ export type hinh_anhWhereInput = {
   ten_hinh?: Prisma.StringFilter<"hinh_anh"> | string
   duong_dan?: Prisma.StringFilter<"hinh_anh"> | string
   mo_ta?: Prisma.StringFilter<"hinh_anh"> | string
-  tuoi?: Prisma.IntNullableFilter<"hinh_anh"> | number | null
   nguoi_dung_id?: Prisma.IntFilter<"hinh_anh"> | number
   deletedBy?: Prisma.IntFilter<"hinh_anh"> | number
   isDeleted?: Prisma.BoolFilter<"hinh_anh"> | boolean
@@ -286,7 +274,6 @@ export type hinh_anhOrderByWithRelationInput = {
   ten_hinh?: Prisma.SortOrder
   duong_dan?: Prisma.SortOrder
   mo_ta?: Prisma.SortOrder
-  tuoi?: Prisma.SortOrderInput | Prisma.SortOrder
   nguoi_dung_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
@@ -307,7 +294,6 @@ export type hinh_anhWhereUniqueInput = Prisma.AtLeast<{
   ten_hinh?: Prisma.StringFilter<"hinh_anh"> | string
   duong_dan?: Prisma.StringFilter<"hinh_anh"> | string
   mo_ta?: Prisma.StringFilter<"hinh_anh"> | string
-  tuoi?: Prisma.IntNullableFilter<"hinh_anh"> | number | null
   nguoi_dung_id?: Prisma.IntFilter<"hinh_anh"> | number
   deletedBy?: Prisma.IntFilter<"hinh_anh"> | number
   isDeleted?: Prisma.BoolFilter<"hinh_anh"> | boolean
@@ -324,7 +310,6 @@ export type hinh_anhOrderByWithAggregationInput = {
   ten_hinh?: Prisma.SortOrder
   duong_dan?: Prisma.SortOrder
   mo_ta?: Prisma.SortOrder
-  tuoi?: Prisma.SortOrderInput | Prisma.SortOrder
   nguoi_dung_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
@@ -346,7 +331,6 @@ export type hinh_anhScalarWhereWithAggregatesInput = {
   ten_hinh?: Prisma.StringWithAggregatesFilter<"hinh_anh"> | string
   duong_dan?: Prisma.StringWithAggregatesFilter<"hinh_anh"> | string
   mo_ta?: Prisma.StringWithAggregatesFilter<"hinh_anh"> | string
-  tuoi?: Prisma.IntNullableWithAggregatesFilter<"hinh_anh"> | number | null
   nguoi_dung_id?: Prisma.IntWithAggregatesFilter<"hinh_anh"> | number
   deletedBy?: Prisma.IntWithAggregatesFilter<"hinh_anh"> | number
   isDeleted?: Prisma.BoolWithAggregatesFilter<"hinh_anh"> | boolean
@@ -359,7 +343,6 @@ export type hinh_anhCreateInput = {
   ten_hinh: string
   duong_dan: string
   mo_ta: string
-  tuoi?: number | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -375,7 +358,6 @@ export type hinh_anhUncheckedCreateInput = {
   ten_hinh: string
   duong_dan: string
   mo_ta: string
-  tuoi?: number | null
   nguoi_dung_id: number
   deletedBy?: number
   isDeleted?: boolean
@@ -390,7 +372,6 @@ export type hinh_anhUpdateInput = {
   ten_hinh?: Prisma.StringFieldUpdateOperationsInput | string
   duong_dan?: Prisma.StringFieldUpdateOperationsInput | string
   mo_ta?: Prisma.StringFieldUpdateOperationsInput | string
-  tuoi?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -406,7 +387,6 @@ export type hinh_anhUncheckedUpdateInput = {
   ten_hinh?: Prisma.StringFieldUpdateOperationsInput | string
   duong_dan?: Prisma.StringFieldUpdateOperationsInput | string
   mo_ta?: Prisma.StringFieldUpdateOperationsInput | string
-  tuoi?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   nguoi_dung_id?: Prisma.IntFieldUpdateOperationsInput | number
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -422,7 +402,6 @@ export type hinh_anhCreateManyInput = {
   ten_hinh: string
   duong_dan: string
   mo_ta: string
-  tuoi?: number | null
   nguoi_dung_id: number
   deletedBy?: number
   isDeleted?: boolean
@@ -435,7 +414,6 @@ export type hinh_anhUpdateManyMutationInput = {
   ten_hinh?: Prisma.StringFieldUpdateOperationsInput | string
   duong_dan?: Prisma.StringFieldUpdateOperationsInput | string
   mo_ta?: Prisma.StringFieldUpdateOperationsInput | string
-  tuoi?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -448,7 +426,6 @@ export type hinh_anhUncheckedUpdateManyInput = {
   ten_hinh?: Prisma.StringFieldUpdateOperationsInput | string
   duong_dan?: Prisma.StringFieldUpdateOperationsInput | string
   mo_ta?: Prisma.StringFieldUpdateOperationsInput | string
-  tuoi?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   nguoi_dung_id?: Prisma.IntFieldUpdateOperationsInput | number
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -473,7 +450,6 @@ export type hinh_anhCountOrderByAggregateInput = {
   ten_hinh?: Prisma.SortOrder
   duong_dan?: Prisma.SortOrder
   mo_ta?: Prisma.SortOrder
-  tuoi?: Prisma.SortOrder
   nguoi_dung_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
@@ -484,7 +460,6 @@ export type hinh_anhCountOrderByAggregateInput = {
 
 export type hinh_anhAvgOrderByAggregateInput = {
   hinh_anh_id?: Prisma.SortOrder
-  tuoi?: Prisma.SortOrder
   nguoi_dung_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
 }
@@ -494,7 +469,6 @@ export type hinh_anhMaxOrderByAggregateInput = {
   ten_hinh?: Prisma.SortOrder
   duong_dan?: Prisma.SortOrder
   mo_ta?: Prisma.SortOrder
-  tuoi?: Prisma.SortOrder
   nguoi_dung_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
@@ -508,7 +482,6 @@ export type hinh_anhMinOrderByAggregateInput = {
   ten_hinh?: Prisma.SortOrder
   duong_dan?: Prisma.SortOrder
   mo_ta?: Prisma.SortOrder
-  tuoi?: Prisma.SortOrder
   nguoi_dung_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
@@ -519,7 +492,6 @@ export type hinh_anhMinOrderByAggregateInput = {
 
 export type hinh_anhSumOrderByAggregateInput = {
   hinh_anh_id?: Prisma.SortOrder
-  tuoi?: Prisma.SortOrder
   nguoi_dung_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
 }
@@ -546,14 +518,6 @@ export type hinh_anhUpdateOneRequiredWithoutBinh_luanNestedInput = {
   upsert?: Prisma.hinh_anhUpsertWithoutBinh_luanInput
   connect?: Prisma.hinh_anhWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.hinh_anhUpdateToOneWithWhereWithoutBinh_luanInput, Prisma.hinh_anhUpdateWithoutBinh_luanInput>, Prisma.hinh_anhUncheckedUpdateWithoutBinh_luanInput>
-}
-
-export type NullableIntFieldUpdateOperationsInput = {
-  set?: number | null
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
 }
 
 export type hinh_anhCreateNestedOneWithoutLuu_anhInput = {
@@ -616,7 +580,6 @@ export type hinh_anhCreateWithoutBinh_luanInput = {
   ten_hinh: string
   duong_dan: string
   mo_ta: string
-  tuoi?: number | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -631,7 +594,6 @@ export type hinh_anhUncheckedCreateWithoutBinh_luanInput = {
   ten_hinh: string
   duong_dan: string
   mo_ta: string
-  tuoi?: number | null
   nguoi_dung_id: number
   deletedBy?: number
   isDeleted?: boolean
@@ -661,7 +623,6 @@ export type hinh_anhUpdateWithoutBinh_luanInput = {
   ten_hinh?: Prisma.StringFieldUpdateOperationsInput | string
   duong_dan?: Prisma.StringFieldUpdateOperationsInput | string
   mo_ta?: Prisma.StringFieldUpdateOperationsInput | string
-  tuoi?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -676,7 +637,6 @@ export type hinh_anhUncheckedUpdateWithoutBinh_luanInput = {
   ten_hinh?: Prisma.StringFieldUpdateOperationsInput | string
   duong_dan?: Prisma.StringFieldUpdateOperationsInput | string
   mo_ta?: Prisma.StringFieldUpdateOperationsInput | string
-  tuoi?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   nguoi_dung_id?: Prisma.IntFieldUpdateOperationsInput | number
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -690,7 +650,6 @@ export type hinh_anhCreateWithoutLuu_anhInput = {
   ten_hinh: string
   duong_dan: string
   mo_ta: string
-  tuoi?: number | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -705,7 +664,6 @@ export type hinh_anhUncheckedCreateWithoutLuu_anhInput = {
   ten_hinh: string
   duong_dan: string
   mo_ta: string
-  tuoi?: number | null
   nguoi_dung_id: number
   deletedBy?: number
   isDeleted?: boolean
@@ -735,7 +693,6 @@ export type hinh_anhUpdateWithoutLuu_anhInput = {
   ten_hinh?: Prisma.StringFieldUpdateOperationsInput | string
   duong_dan?: Prisma.StringFieldUpdateOperationsInput | string
   mo_ta?: Prisma.StringFieldUpdateOperationsInput | string
-  tuoi?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -750,7 +707,6 @@ export type hinh_anhUncheckedUpdateWithoutLuu_anhInput = {
   ten_hinh?: Prisma.StringFieldUpdateOperationsInput | string
   duong_dan?: Prisma.StringFieldUpdateOperationsInput | string
   mo_ta?: Prisma.StringFieldUpdateOperationsInput | string
-  tuoi?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   nguoi_dung_id?: Prisma.IntFieldUpdateOperationsInput | number
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -764,7 +720,6 @@ export type hinh_anhCreateWithoutNguoi_dungInput = {
   ten_hinh: string
   duong_dan: string
   mo_ta: string
-  tuoi?: number | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -779,7 +734,6 @@ export type hinh_anhUncheckedCreateWithoutNguoi_dungInput = {
   ten_hinh: string
   duong_dan: string
   mo_ta: string
-  tuoi?: number | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -823,7 +777,6 @@ export type hinh_anhScalarWhereInput = {
   ten_hinh?: Prisma.StringFilter<"hinh_anh"> | string
   duong_dan?: Prisma.StringFilter<"hinh_anh"> | string
   mo_ta?: Prisma.StringFilter<"hinh_anh"> | string
-  tuoi?: Prisma.IntNullableFilter<"hinh_anh"> | number | null
   nguoi_dung_id?: Prisma.IntFilter<"hinh_anh"> | number
   deletedBy?: Prisma.IntFilter<"hinh_anh"> | number
   isDeleted?: Prisma.BoolFilter<"hinh_anh"> | boolean
@@ -837,7 +790,6 @@ export type hinh_anhCreateManyNguoi_dungInput = {
   ten_hinh: string
   duong_dan: string
   mo_ta: string
-  tuoi?: number | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -849,7 +801,6 @@ export type hinh_anhUpdateWithoutNguoi_dungInput = {
   ten_hinh?: Prisma.StringFieldUpdateOperationsInput | string
   duong_dan?: Prisma.StringFieldUpdateOperationsInput | string
   mo_ta?: Prisma.StringFieldUpdateOperationsInput | string
-  tuoi?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -864,7 +815,6 @@ export type hinh_anhUncheckedUpdateWithoutNguoi_dungInput = {
   ten_hinh?: Prisma.StringFieldUpdateOperationsInput | string
   duong_dan?: Prisma.StringFieldUpdateOperationsInput | string
   mo_ta?: Prisma.StringFieldUpdateOperationsInput | string
-  tuoi?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -879,7 +829,6 @@ export type hinh_anhUncheckedUpdateManyWithoutNguoi_dungInput = {
   ten_hinh?: Prisma.StringFieldUpdateOperationsInput | string
   duong_dan?: Prisma.StringFieldUpdateOperationsInput | string
   mo_ta?: Prisma.StringFieldUpdateOperationsInput | string
-  tuoi?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -932,7 +881,6 @@ export type hinh_anhSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   ten_hinh?: boolean
   duong_dan?: boolean
   mo_ta?: boolean
-  tuoi?: boolean
   nguoi_dung_id?: boolean
   deletedBy?: boolean
   isDeleted?: boolean
@@ -952,7 +900,6 @@ export type hinh_anhSelectScalar = {
   ten_hinh?: boolean
   duong_dan?: boolean
   mo_ta?: boolean
-  tuoi?: boolean
   nguoi_dung_id?: boolean
   deletedBy?: boolean
   isDeleted?: boolean
@@ -961,7 +908,7 @@ export type hinh_anhSelectScalar = {
   updatedAt?: boolean
 }
 
-export type hinh_anhOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"hinh_anh_id" | "ten_hinh" | "duong_dan" | "mo_ta" | "tuoi" | "nguoi_dung_id" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["hinh_anh"]>
+export type hinh_anhOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"hinh_anh_id" | "ten_hinh" | "duong_dan" | "mo_ta" | "nguoi_dung_id" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["hinh_anh"]>
 export type hinh_anhInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   binh_luan?: boolean | Prisma.hinh_anh$binh_luanArgs<ExtArgs>
   nguoi_dung?: boolean | Prisma.nguoi_dungDefaultArgs<ExtArgs>
@@ -981,7 +928,6 @@ export type $hinh_anhPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     ten_hinh: string
     duong_dan: string
     mo_ta: string
-    tuoi: number | null
     nguoi_dung_id: number
     deletedBy: number
     isDeleted: boolean
@@ -1364,7 +1310,6 @@ export interface hinh_anhFieldRefs {
   readonly ten_hinh: Prisma.FieldRef<"hinh_anh", 'String'>
   readonly duong_dan: Prisma.FieldRef<"hinh_anh", 'String'>
   readonly mo_ta: Prisma.FieldRef<"hinh_anh", 'String'>
-  readonly tuoi: Prisma.FieldRef<"hinh_anh", 'Int'>
   readonly nguoi_dung_id: Prisma.FieldRef<"hinh_anh", 'Int'>
   readonly deletedBy: Prisma.FieldRef<"hinh_anh", 'Int'>
   readonly isDeleted: Prisma.FieldRef<"hinh_anh", 'Boolean'>
