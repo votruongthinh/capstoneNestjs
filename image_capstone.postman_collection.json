@@ -1,0 +1,452 @@
+{
+  "info": {
+    "_postman_id": "4d7872d3-70be-42da-b6c0-8ceff36fdf9b",
+    "name": "image_capstone",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "41249184",
+    "_collection_link": "https://go.postman.co/collection/41249184-4d7872d3-70be-42da-b6c0-8ceff36fdf9b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "đăng nhập",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n//    \"email\": \"truongthinh12@gmail.com\",\r\n//    \"mat_khau\":\"Truongthinh2003@@\"\r\n   \"email\": \"truongthinh123@gmail.com\",\r\n   \"mat_khau\":\"Truongthinh2003@@\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{domain}}/auth/login",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "đăng kí",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"email\": \"truongthinh123@gmail.com\",\r\n   \"mat_khau\":\"Truongthinh2003@@\",\r\n   \"ho_ten\": \"Trường\",\r\n   \"tuoi\": 20\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{domain}}/auth/register",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "refresh-token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"email\": \"truongthinh12@gmail.com\",\r\n   \"mat_khau\":\"Truongthinh2003@@\"\r\n   // \"email\": \"truongthinh123@gmail.com\",\r\n   //\"mat_khau\":\"Truongthinh2003@@\",\r\n}"
+            },
+            "url": {
+              "raw": "{{domain}}/auth/refresh-token",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "auth",
+                "refresh-token"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "item": [
+        {
+          "name": "tạo ảnh mới",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "ten_hinh",
+                  "value": "biển",
+                  "type": "text",
+                  "uuid": "20661c6f-c9b9-4ab6-a830-bedee139fa4a"
+                },
+                {
+                  "key": "duong_dan",
+                  "type": "file",
+                  "uuid": "e5d0e0e0-66d3-4ead-8027-ea0411264f2d",
+                  "src": "/C:/Users/Dell3551/Downloads/dibien.jpg"
+                },
+                {
+                  "key": "mo_ta",
+                  "value": "biển xanh",
+                  "type": "text",
+                  "uuid": "ee9202de-1b0b-43a1-965b-c155d1a829d1"
+                },
+                {
+                  "key": "tuoi",
+                  "value": "20",
+                  "type": "text",
+                  "uuid": "0c957313-864a-4e4f-9e86-83e05b598c2b"
+                },
+                {
+                  "key": "nguoi_dung_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "300f2d37-759d-4629-a161-9f06434aec9f"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{domain}}/images/upload",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "images",
+                "upload"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lấy tất cả anh ,lọc, phần trang ,tìm kiếm",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/images?page=1&pageSize=3",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "images"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lấy hình ảnh tên",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/images/search?ten_hinh=bông",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "images",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "ten_hinh",
+                  "value": "bông"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lấy hình ảnh theo id ảnh",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/images/5",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "images",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "xóa mềm ảnh",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/images/4/soft",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "images",
+                "4",
+                "soft"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "phục hồi xóa mềm ảnh",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/images/4/restore",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "images",
+                "4",
+                "restore"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "xóa cứng ảnh",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/4/hard",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "4",
+                "hard"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Cập nhật profile",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "avatar",
+                  "type": "file",
+                  "uuid": "270d7d43-3008-43be-9ab5-59099fc8b0bd",
+                  "src": "/C:/Users/Dell3551/Downloads/dibien.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{domain}}/users/me?avatar",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "users",
+                "me"
+              ],
+              "query": [
+                {
+                  "key": "avatar",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lấy thông tin cá nhân user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/users/get-info",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "users",
+                "get-info"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lấy danh sách ảnh đã lưu theo id user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/users/saved-images",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "users",
+                "saved-images"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Comments",
+      "item": [
+        {
+          "name": "tạo bình luận mới",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"noi_dung\": \"ảnh này tuyệt đẹp,10 điểm\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{domain}}/comments/7",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "comments",
+                "7"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lấy bình luận theo id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/comments/5",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "comments",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Saved-image",
+      "item": [
+        {
+          "name": "lấy id ảnh đã lưu",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/saved-image/7/is-saved",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "saved-image",
+                "7",
+                "is-saved"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "tạo lưu ảnh",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"hinh_id\":3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{domain}}/saved-image/create",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "saved-image",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
