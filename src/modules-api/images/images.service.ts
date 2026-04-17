@@ -11,28 +11,24 @@ import { buildQueryPrisma } from 'src/common/helpers/build-query-prisma-helper';
 export class ImagesService {
   constructor(private prisma: PrismaService) {}
 
-  // ✅ SỬA:
+
   // thêm tham số user để lấy thông tin người đăng nhập từ ProtectGuard
   async uploadImage(
     file: Express.Multer.File,
     createImageDto: CreateImageDto,
-    user: any, // <-- lấy từ req.user
+    user: any, 
   ) {
     //1 Nếu user không upload ảnh thì báo lỗi luôn.
     if (!file) {
       throw new BadRequestException('Vui lòng chọn file ảnh');
     }
-
-    // ✅ SỬA:
     // bỏ nguoi_dung_id ra khỏi body
     // vì user id phải lấy từ token / req.user
     const { ten_hinh, mo_ta } = createImageDto;
 
-    // ✅ SỬA:
     // lấy id người dùng từ req.user (được Guard gắn vào request)
     const nguoi_dung_id = user.nguoi_dung_id;
 
-    // ✅ GỢI Ý:
     // đoạn check user này thực ra có thể bỏ
     // vì ProtectGuard đã check user tồn tại rồi
     // nhưng giữ lại để code an toàn hơn và dễ hiểu flow
@@ -58,7 +54,6 @@ export class ImagesService {
         // nếu không có mô tả thì để rỗng
         mo_ta: mo_ta || '',
 
-        // ✅ SỬA QUAN TRỌNG:
         // không lấy từ createImageDto.nguoi_dung_id nữa
         // mà lấy từ user đang đăng nhập
         nguoi_dung_id: Number(nguoi_dung_id),
@@ -192,7 +187,7 @@ export class ImagesService {
     return getDetail;
   }
 
-  async deleteImage(id: number, user: number) {
+  async deleteSoft(id: number, user: number) {
     // Nhận userId là number
     const image = await this.prisma.hinh_anh.findFirst({
       where: {
@@ -271,5 +266,6 @@ export class ImagesService {
     const result = await this.prisma.hinh_anh.delete({
       where: { hinh_anh_id: id },
     });
+    return result
   }
 }

@@ -10,14 +10,14 @@ import {
 } from '@nestjs/common';
 import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
-import { UpdateCommentDto } from './dto/update-comment.dto';
 import { User } from 'src/common/decorator/user.decorator';
 
-@Controller('comments/:imageId')
+@Controller('comments')
 export class CommentsController {
   constructor(private readonly commentsService: CommentsService) {}
 
-  @Post()
+  // api tạo bình luận hình ảnh
+  @Post(':imageId')
   async createComment(
     @Param('imageId', ParseIntPipe) imageId: number,
     @User() user: any,
@@ -31,7 +31,8 @@ export class CommentsController {
     return result;
   }
 
-  @Get()
+  // api lấy id phần ảnh đã tạo bình luận
+  @Get(':imageId')
   async getCommentsByImageId(@Param('imageId', ParseIntPipe) imageId: number) {
     const result = await this.commentsService.getCommentsByImageId(imageId);
     return result;

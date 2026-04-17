@@ -55,9 +55,9 @@ export class ImagesController {
     return result;
   }
 
-  @Delete(':id')
-  async deleteImage(@Param('id', ParseIntPipe) id: number, @User() user: any) {
-    const result = await this.imagesService.deleteImage(id, user.nguoi_dung_id);
+  @Delete(':id/soft')
+  async deleteSoft(@Param('id', ParseIntPipe) id: number, @User() user: any) {
+    const result = await this.imagesService.deleteSoft(id, user.nguoi_dung_id);
     return result;
   }
   @Patch(':id/restore')

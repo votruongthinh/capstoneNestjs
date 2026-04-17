@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe, UnauthorizedException } from '@nestjs/common';
 import { SavedImageService } from './saved-image.service';
 import { CreateSavedImageDto } from './dto/create-saved-image.dto';
-import { UpdateSavedImageDto } from './dto/update-saved-image.dto';
+
 import { User } from 'src/common/decorator/user.decorator';
 
 @Controller('saved-image')
@@ -21,15 +21,15 @@ export class SavedImageController {
   }
 
   @Get(':imageId/is-saved')
-async isSaved(
+  async isSaved(
   @Param('imageId', ParseIntPipe) imageId: number,   // đổi tên rõ ràng
   @User() user: any
-) {
+  ) {
  
   const result = await this.savedImageService.isSave(imageId, user.nguoi_dung_id);
 
   console.log('Kết quả trả về từ service:', result);
 
-  return result;   // không cần ?? nữa
-}
+  return result;  
+  }
 }
