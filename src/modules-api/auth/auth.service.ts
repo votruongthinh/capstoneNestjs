@@ -12,7 +12,7 @@ export class AuthService {
     private prisma: PrismaService,
     private tokenService: TokenService,
   ) {}
-  
+  //đăng ký người dùng
   async register(body: registerDto) {
     //1
     const { email, mat_khau, ho_ten, tuoi } = body;
@@ -47,6 +47,7 @@ export class AuthService {
     console.log({ email, mat_khau, ho_ten, userExist, userNew });
     return true;
   }
+  //đăng nhập người dùng
   async login(body: loginDto) {
     const { email, mat_khau } = body;
 
@@ -81,7 +82,7 @@ export class AuthService {
       refreshToken: refreshToken,
     };
   }
-
+  // làm mới lại token
   async refreshToken(req: Request){
     //bốc tách AT & RT để gửi lên cookies
     const {accessToken ,refreshToken} = req.cookies;

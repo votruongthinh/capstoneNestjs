@@ -9,7 +9,7 @@ import { AccessTokenPayload, RefreshTokenPayload } from './token.dto';
 export class TokenService {
   createAccessToken(userId :number): string {
     if (!userId) {
-      throw new BadRequestException('khong co userId de tao token');
+      throw new BadRequestException('không có userId để tạo token');
     }
     const accessToken = jwt.sign(
       { userId: userId },
@@ -20,7 +20,7 @@ export class TokenService {
   }
   createRefreshToken(userId : number): string {
     if (!userId) {
-      throw new BadRequestException('khong co userId de tao refreshtoken');
+      throw new BadRequestException('không có userId để tạo refresh token');
     }
     const refreshToken = jwt.sign(
       { userId: userId },

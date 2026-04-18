@@ -257,7 +257,7 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{domain}}/4/hard",
+              "raw": "{{domain}}/images/4/hard",
               "host": [
                 "{{domain}}"
               ],
