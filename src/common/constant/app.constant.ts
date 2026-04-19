@@ -1,17 +1,9 @@
-import 'dotenv/config';
+// ⚠️ KHÔNG import dotenv ở đây - nó đã được import ở main.ts
+// Lấy giá trị trực tiếp từ process.env
 
-// Validate và lấy biến môi trường
-const validateEnv = (key: string, defaultValue?: string): string => {
-  const value = process.env[key] || defaultValue;
-  if (!value) {
-    console.warn(`⚠️  Environment variable ${key} is not defined`);
-  }
-  return value || '';
-};
-
-export const DATABASE_URL = validateEnv('DATABASE_URL');
-export const ACCESS_TOKEN_SECRET = validateEnv('ACCESS_TOKEN_SECRET');
-export const REFRESH_TOKEN_SECRET = validateEnv('REFRESH_TOKEN_SECRET');
+export const DATABASE_URL = process.env.DATABASE_URL;
+export const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
+export const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET;
 
 // Log biến môi trường (chỉ log key, không log giá trị để bảo mật)
 console.log(
