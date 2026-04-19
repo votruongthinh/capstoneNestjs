@@ -6,24 +6,39 @@ import { DATABASE_URL } from 'src/common/constant/app.constant';
 @Injectable()
 export class PrismaService extends PrismaClient {
   constructor() {
-    const url = new URL(DATABASE_URL as string);
-    console.log('url: ', { url, database: url.pathname.substring(1) });
-    const adapter = new PrismaMariaDb({
-      user: url.username,
-      password: url.password,
-      host: url.hostname,
-      port: Number(url.port),
-      // loai bo dau  " / " trong /cyber_community =>cyber_community
-      database: url.pathname.substring(1),
-    });
-    super({ adapter });
+    // ✅ Kiểm tra DATABASE_URL có tồn tại không
+    if (!DATABASE_URL) {
+      throw new Error(
+        '❌ DATABASE_URL is not defined. Please set it in environment variables or .env file',
+      );
+    }
+
+    try {
+      const url = new URL(DATABASE_URL as string);
+      console.log('✅ Prisma: Parsing database URL successfully');
+
+      const adapter = new PrismaMariaDb({
+        user: url.username,
+        password: url.password,
+        host: url.hostname,
+        port: Number(url.port),
+        database: url.pathname.substring(1),
+      });
+
+      super({ adapter });
+    } catch (error) {
+      console.error('❌ Error parsing DATABASE_URL:', error);
+      throw error;
+    }
   }
+
   async onModuleInit() {
     try {
       await this.$queryRaw`SELECT 1+1 AS result`;
       console.log('✅ [PRISMA] Connection has been established successfully.');
     } catch (error) {
       console.error('❌ Unable to connect to the database:', error);
+      throw error;
     }
   }
 }

@@ -1,21 +1,25 @@
-import "dotenv/config";
+import 'dotenv/config';
 
-export const DATABASE_URL = process.env.DATABASE_URL;
-export const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
-export const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET;
+// Validate và lấy biến môi trường
+const validateEnv = (key: string, defaultValue?: string): string => {
+  const value = process.env[key] || defaultValue;
+  if (!value) {
+    console.warn(`⚠️  Environment variable ${key} is not defined`);
+  }
+  return value || '';
+};
 
-//kiểm tra biến môi trường DATABASE_URL đã được load chưa
+export const DATABASE_URL = validateEnv('DATABASE_URL');
+export const ACCESS_TOKEN_SECRET = validateEnv('ACCESS_TOKEN_SECRET');
+export const REFRESH_TOKEN_SECRET = validateEnv('REFRESH_TOKEN_SECRET');
+
+// Log biến môi trường (chỉ log key, không log giá trị để bảo mật)
 console.log(
-  "\n",
+  '\n✅ Environment Variables Status:',
   {
-    DATABASE_URL: DATABASE_URL,
-    ACCESS_TOKEN_SECRET: ACCESS_TOKEN_SECRET,
-    REFRESH_TOKEN_SECRET: REFRESH_TOKEN_SECRET,
-   
-  
-
-    
-
+    DATABASE_URL: DATABASE_URL ? '✓ Loaded' : '✗ Missing',
+    ACCESS_TOKEN_SECRET: ACCESS_TOKEN_SECRET ? '✓ Loaded' : '✗ Missing',
+    REFRESH_TOKEN_SECRET: REFRESH_TOKEN_SECRET ? '✓ Loaded' : '✗ Missing',
   },
-  "\n"
+  '\n',
 );

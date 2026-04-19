@@ -1,3 +1,4 @@
+import 'dotenv/config'; // ✅ Thêm dòng này ở đầu
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import cookieParser from 'cookie-parser';
@@ -15,7 +16,7 @@ async function bootstrap() {
   //   prefix: '/',
   // });
 
-  const PORT = 3069;
+  const PORT = process.env.PORT || 3069; // ✅ Hỗ trợ PORT từ biến môi trường
   await app.listen(PORT, () => {
     console.log(`Start BE successfully at http://localhost:${PORT}`);
   });
