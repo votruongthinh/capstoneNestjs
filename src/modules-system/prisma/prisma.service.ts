@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaClient } from './generated/prisma/client.js';
 import { PrismaMariaDb } from '@prisma/adapter-mariadb';
-import { DATABASE_URL } from 'src/common/constant/app.constant';
+//import { DATABASE_URL } from 'src/common/constant/app.constant';
 
 @Injectable()
 export class PrismaService extends PrismaClient {
   constructor() {
+    const DATABASE_URL = process.env.DATABASE_URL
     // ✅ Kiểm tra DATABASE_URL có tồn tại không
     if (!DATABASE_URL) {
       throw new Error(
