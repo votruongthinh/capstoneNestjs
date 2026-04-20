@@ -20,7 +20,7 @@ async function bootstrap() {
   SwaggerModule.setup('api/docs', app, documentFactory);
 
   const port = process.env.PORT || 3069;
-  await app.listen(PORT || 3069, () => {
+  await app.listen(port || 3069, () => {
     console.log(`Start BE successfully at http://localhost:${PORT}`);
   });
 }
