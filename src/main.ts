@@ -1,23 +1,25 @@
-import 'dotenv/config'; // ✅ Thêm dòng này ở đầu
+
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import cookieParser from 'cookie-parser';
-import { NestExpressApplication } from '@nestjs/platform-express';
-import { join } from 'path';
-
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { PORT } from './common/constant/app.constant';
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const app = await NestFactory.create(AppModule);
 
   app.use(cookieParser());
-
   app.setGlobalPrefix('api');
 
-  // app.useStaticAssets(join(__dirname, '..', 'public'), {
-  //   prefix: '/',
-  // });
+  const config = new DocumentBuilder()
+    .setTitle('Cats example')
+    .setDescription('The cats API description')
+    .setVersion('1.0')
+    .addTag('cats')
+    .build();
+  const documentFactory = () => SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api/docs', app, documentFactory);
 
-  const PORT = process.env.PORT || 3069; // ✅ Hỗ trợ PORT từ biến môi trường
-  await app.listen(PORT, () => {
+  await app.listen(PORT || 3069, () => {
     console.log(`Start BE successfully at http://localhost:${PORT}`);
   });
 }
